@@ -9,7 +9,7 @@
 
 }
 body{
-	padding: 0 10px;
+	padding: 10px;
 	background-color: #234;
 }
 h1{
@@ -23,10 +23,10 @@ h1{
 }
 
 .container{
-	width: 500px;
 	height: 500px;
 	color: #9E9E9E;
 	display: flex;
+	max-width: 400px;
 	margin: 80px auto;
 	text-align: center;
 	border-radius: 4px;
@@ -76,6 +76,7 @@ b{
 		font-size: 1.3em;
 	}
 	.container{
+		margin: 0;
 		width: 100%;
 	}
 	#pergunta{
