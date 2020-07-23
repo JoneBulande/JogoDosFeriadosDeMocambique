@@ -84,3 +84,6 @@ b{
 	}
 
 }
+#ding, #wrong {
+	display: none;
+}

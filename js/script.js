@@ -74,6 +74,8 @@ const feriados = [
 ];
 function reset(){
 	const h1 = document.getElementById("h1");
+	const ding = document.getElementById("ding");
+	const wrong = document.getElementById("wrong");
 	const img = document.getElementById("img");
 	n = Math.floor(Math.random() * feriados.length),
 	resposta = document.getElementById("resposta");
@@ -85,8 +87,10 @@ function responder() {
 	if (resposta.value !== "" && resposta.value !== 0 && resposta.value !== " ") {
 		if (feriados[n].datas.includes(resposta.value) == true) {
 			img.src = "img/certo.svg";
+			ding.play();
 			document.getElementById("resposta").value = "";
 		}else{
+			wrong.play();
 			img.src = "img/errado.svg";
 			document.getElementById("resposta").value = "";			
 		}
