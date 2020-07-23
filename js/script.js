@@ -82,7 +82,7 @@ function reset(){
 	pergunta.innerHTML = `Em que data se celebra:<br/> <b>${feriados[n].celebra}<b/>?`;
 }
 function responder() {
-	if (resposta.value !== "" && resposta.value !== 0 && resposta.value != " ") {
+	if (resposta.value !== "" && resposta.value !== 0 && resposta.value !== " ") {
 		if (feriados[n].datas.includes(resposta.value) == true) {
 			img.src = "img/certo.svg";
 			document.getElementById("resposta").value = "";
