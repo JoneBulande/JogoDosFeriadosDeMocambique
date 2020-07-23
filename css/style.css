@@ -9,6 +9,7 @@
 
 }
 body{
+	padding: 0 10px;
 	background-color: #234;
 }
 h1{
@@ -69,4 +70,9 @@ button{
 }
 b{
 	color: #9e9e9e;
+}
+@media (max-width: 700px){
+	.container{
+		width: 100%;
+	}
 }

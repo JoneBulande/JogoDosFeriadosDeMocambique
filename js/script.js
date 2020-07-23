@@ -90,9 +90,14 @@ function responder() {
 			img.src = "img/errado.svg";
 			document.getElementById("resposta").value = "";			
 		}
-		setTimeout(reset, 1000);
+		setTimeout(reset, 500);
 	}else{
 		alert("[ERRO] - preencha o input corretamente e volte a tentar!");
 		setTimeout(reset, 100);
+	}
+}
+function teclaEnter(event){
+	if (event.keyCode === 13) {
+		responder();
 	}
 }
