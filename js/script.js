@@ -16,7 +16,7 @@ const feriados = [
 	  		  "3 de fevereiro"] 
 	},	
 	{ 	
-		img: "img/mulher.svg",
+		img: "img/mulher.png",
 		celebra: "Dia da Mulher Moçambicana",
 		datas: ["7 de Abril ",
 				"7 de Abril",
@@ -93,6 +93,6 @@ function responder() {
 		setTimeout(reset, 1000);
 	}else{
 		alert("[ERRO] - preencha o input corretamente e volte a tentar!");
+		setTimeout(reset, 100);
 	}
-	reset();
 }
