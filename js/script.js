@@ -88,8 +88,7 @@ function responder() {
 			document.getElementById("resposta").value = "";
 		}else{
 			img.src = "img/errado.svg";
-			document.getElementById("resposta").value = "";
-			
+			document.getElementById("resposta").value = "";			
 		}
 		setTimeout(reset, 1000);
 	}else{
