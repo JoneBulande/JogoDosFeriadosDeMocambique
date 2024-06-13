@@ -23,7 +23,8 @@ h1{
 }
 
 .container{
-	height: 500px;
+	min-height: 560px;
+	height: fit-content;
 	color: #9E9E9E;
 	display: flex;
 	max-width: 400px;
@@ -36,22 +37,27 @@ h1{
 	border: 1px solid #3c5064;
 	justify-content: flex-start;
 }
+
 .container img{
-	width: 144px;
+	width: 200px;
 	padding: 10px;
 }
+
 .conteudo{
 	padding: 40px 0;
 }
+
 #pergunta{
 	margin: 10px;
 	font-size: 1.5em;
 }
+
 form{
 	width: 250px;
 	margin: 0 auto;
 }
-.item{
+
+.item, button#restart {
 	width: 250px;
 	margin: 5px 0;
 	padding: 10px;
@@ -62,7 +68,8 @@ form{
 	border: 1px solid #3c5064;
 	background-color: #2a3e52;
 }
-.item:hover{
+
+.item:hover, button#restart:hover{
 	background-color: #234;
 }
 button{
@@ -86,4 +93,14 @@ b{
 }
 #ding, #wrong {
 	display: none;
+}
+
+#score {
+	padding: 10px;
+}
+
+.restar_area {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

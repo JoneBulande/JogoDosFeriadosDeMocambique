@@ -1,107 +1,127 @@
 const feriados = [
-	{ 
+	{
 		img: "img/anonovo.png",
 		celebra: "Ano Novo",
-		datas: ["1 de Janeiro ",
-				"1 de Janeiro",
-				"1 de janeiro  ",
-				"1 de janeiro "]
+		data: "1 de Janeiro"
 	},
 	{
 		img: "img/hero.png",
 		celebra: "Dia dos Heróis Moçambicanos",
-		datas: ["3 de Fevereiro ",
-	  		  "3 de Fevereiro",
-	  		  "3 de fevereiro ",
-	  		  "3 de fevereiro"] 
-	},	
-	{ 	
+		data: "3 de Fevereiro"
+	},
+	{
 		img: "img/mulher.png",
 		celebra: "Dia da Mulher Moçambicana",
-		datas: ["7 de Abril ",
-				"7 de Abril",
-				"7 de aAbril ",
-				"7 de abril"] 
-	},	
+		data: "7 de Abril"
+	},
 	{
 		img: "img/trabalho.svg",
 		celebra: "Dia Internacional dos Trabalhadores",
-		datas: ["1 de Maio ",
-				"1 de Maio",
-				"1 de maio ",
-				"1 de maio "]
-	},	
+		data: "1 de Maio"
+	},
 	{
 		img: "img/independencia.svg",
 		celebra: "Dia da Independência",
-		datas: ["25 de Junho ",
-				"25 de Junho",
-				"25 de junho ",
-				"25 de junho"]
+		data: "25 de Junho"
 	},
 	{
 		img: "img/familia.svg",
 		celebra: "Dia da Vitória",
-		datas: ["7 de Setembro ",
-				"7 de Setembro",
-				"7 de setembro ",
-				"7 de setembro"]
+		data: "7 de Setembro"
 	},
 	{
 		img: "img/armado.svg",
 		celebra: "Dia das Forças Armadas",
-		datas: ["25 de Setembro ",
-				"25 de Setembro",
-				"25 de setembro ",
-				"25 de setembro"]
+		data: "25 de Setembro"
 	},
 	{
 		img: "img/familia.svg",
 		celebra: "Dia da Paz e Reconciliação",
-		datas: ["5 de outubro ",
-				"5 de outubro",
-				"5 de outubro ",
-				"5 de outubro"]
+		data: "4 de Outubro"
 	},
 	{
 		img: "img/familia.svg",
 		celebra: "Dia da Família",
-		datas: ["25 de Dezembro ",
-				"25 de Dezembro",
-				"25 de dezembro ",
-				"25 de dezembro"]
+		data: "25 de Dezembro"
 	}
 ];
-function reset(){
-	const h1 = document.getElementById("h1");
+
+let score = 0;
+let questionCount = 0;
+const totalQuestions = 5; // Number of questions to be asked
+
+function reset() {
+	if (questionCount >= totalQuestions) {
+		showFinalScore();
+		return;
+	}
+
 	const ding = document.getElementById("ding");
 	const wrong = document.getElementById("wrong");
 	const img = document.getElementById("img");
-	n = Math.floor(Math.random() * feriados.length),
-	resposta = document.getElementById("resposta");
 	const pergunta = document.getElementById("pergunta");
+	const opcoes = document.getElementById("opcoes");
+	const scoreDisplay = document.getElementById("score");
+
+	n = Math.floor(Math.random() * feriados.length);
+
 	img.src = feriados[n].img;
-	pergunta.innerHTML = `Em que data se celebra:<br/> <b>${feriados[n].celebra}<b/>?`;
-}
-function responder() {
-	if (resposta.value !== "" && resposta.value !== 0 && resposta.value !== " ") {
-		if (feriados[n].datas.includes(resposta.value) == true) {
-			img.src = "img/certo.svg";
-			ding.play();
-			document.getElementById("resposta").value = "";
-		}else{
-			wrong.play();
-			img.src = "img/errado.svg";
-			document.getElementById("resposta").value = "";			
-		}
-		setTimeout(reset, 500);
-	}else{
-		alert("[ERRO] - preencha o input corretamente e volte a tentar!");
-		setTimeout(reset, 100);
+	pergunta.innerHTML = `Em que data se celebra:<br/><b>${feriados[n].celebra}</b>?`;
+
+	const correctAnswer = feriados[n].data;
+	const allAnswers = feriados.map(f => f.data);
+	allAnswers.sort(() => 0.5 - Math.random());
+
+	const answersToShow = allAnswers.slice(0, 3);
+	if (!answersToShow.includes(correctAnswer)) {
+		answersToShow[Math.floor(Math.random() * 3)] = correctAnswer;
 	}
+
+	opcoes.innerHTML = '';
+	answersToShow.forEach(answer => {
+		const button = document.createElement("button");
+		button.className = "item";
+		button.innerText = answer;
+		button.onclick = () => responder(answer, correctAnswer);
+		opcoes.appendChild(button);
+	});
+
+	scoreDisplay.innerHTML = `Score: ${score}`;
 }
-function teclaEnter(event){
-	if (event.keyCode === 13) {
-		responder();
+
+function responder(selectedAnswer, correctAnswer) {
+	const img = document.getElementById("img");
+	const ding = document.getElementById("ding");
+	const wrong = document.getElementById("wrong");
+
+	if (selectedAnswer === correctAnswer) {
+		img.src = "img/certo.svg";
+		ding.play();
+		score++;
+	} else {
+		img.src = "img/errado.svg";
+		wrong.play();
 	}
+
+	questionCount++;
+	setTimeout(reset, 1000);
+}
+
+function showFinalScore() {
+	const pergunta = document.getElementById("pergunta");
+	const opcoes = document.getElementById("opcoes");
+	const scoreDisplay = document.getElementById("score");
+	const restartButton = document.getElementById("restart");
+
+	pergunta.innerHTML = `Jogo terminado! Sua pontuação final é ${score} de ${totalQuestions}.`;
+	opcoes.innerHTML = '';
+	scoreDisplay.innerHTML = '';
+	restartButton.style.display = 'block';
+}
+
+function restartGame() {
+	score = 0;
+	questionCount = 0;
+	document.getElementById("restart").style.display = 'none';
+	reset();
 }
