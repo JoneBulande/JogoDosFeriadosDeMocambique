@@ -1,36 +1,79 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="img/mz.png" />
-    <title>Feriados Moçambicanos</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body onload="reset()">
-    <div class="container">
-      <h1 id="h1">Feriados Moçambicanos <i class="ae flag"></i></h1>
-      <div class="conteudo">
-        <img id="img" src="" />
-        <div id="pergunta"></div>
-        <div id="opcoes"></div>
-        <div id="score"></div>
-        <div class="restar_area">
-          <button id="restart" onclick="restartGame()" style="display: none">
-            Restart
-          </button>
-        </div>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <title>Feriados Moçambicanos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="stripe"></div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<div class="game-wrap">
+
+  <!-- Title -->
+  <div class="title-block">
+    <span class="flag-emoji">🇲🇿</span>
+    <h1>Feriados <span>Moçambicanos</span></h1>
+    <div class="subtitle">Quanto sabes sobre os feriados nacionais?</div>
+  </div>
+
+  <!-- Score Row -->
+  <div class="score-row" id="score-row">
+    <div id="score"><span class="score-val" id="score-val">0</span>&nbsp;pts</div>
+    <div class="streak-badge" id="streak-badge">🔥 <span id="streak-num">0</span> seguidos!</div>
+    <div class="q-counter" id="q-counter">Pergunta 1 / 7</div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar-wrap" id="progress-wrap">
+    <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+  </div>
+
+  <!-- Quiz Card -->
+  <div class="card" id="quiz-card">
+    <div class="card-top" id="card-top">
+      <div class="q-badge" id="q-badge">Data</div>
+      <div class="img-frame" id="img-frame">
+        <span class="emoji-fallback" id="img-emoji">🏳️</span>
+        <img id="img" src="" alt="" style="display:none;" />
       </div>
+      <div id="pergunta">Carregando...</div>
     </div>
+    <div class="card-bottom">
+      <div id="opcoes"></div>
+    </div>
+  </div>
 
-    <audio id="ding">
-      <source src="sounds/ding.mp3" type="audio/mp3" />
-    </audio>
+  <!-- Final Screen -->
+  <div class="card" id="final-screen">
+    <div class="trophy-area">
+      <div class="trophy-icon" id="trophy-icon">🏆</div>
+      <div class="final-title">Jogo Terminado!</div>
+      <div class="stars-row" id="stars-row"></div>
+      <div class="final-score-big" id="final-score-big">0</div>
+      <div class="final-score-label">pontos</div>
+      <div class="final-msg" id="final-msg"></div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="stat-val" id="stat-correct">0</div><div class="stat-label">Corretas</div></div>
+      <div class="stat-box"><div class="stat-val" id="stat-acc">0%</div><div class="stat-label">Precisão</div></div>
+      <div class="stat-box"><div class="stat-val" id="stat-streak">0</div><div class="stat-label">Melhor Sequência</div></div>
+      <div class="stat-box"><div class="stat-val" id="stat-time">0s</div><div class="stat-label">Tempo Total</div></div>
+    </div>
+    <button class="btn-restart" onclick="restartGame()">🔄 &nbsp;Jogar Novamente</button>
+  </div>
 
-    <audio id="wrong">
-      <source src="sounds/wrong.mp3" type="audio/mp3" />
-    </audio>
+</div>
 
-    <script src="js/script.js"></script>
-  </body>
+<audio id="ding"><source src="sounds/ding.mp3" type="audio/mp3" /></audio>
+<audio id="wrong"><source src="sounds/wrong.mp3" type="audio/mp3" /></audio>
+
+<script src="js/script.js"></script>
+</body>
 </html>
