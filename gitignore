@@ -1,0 +1,200 @@
+# =============================================================================
+# 🌍 UNIVERSAL .gitignore
+# Cobre: macOS · MERN Stack (MongoDB, Express, React, Node) · Flutter
+# =============================================================================
+
+
+# =============================================================================
+# 🍎 macOS
+# =============================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.AppleDouble
+.LSOverride
+Icon
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+# =============================================================================
+# 💻 Editores e IDEs
+# =============================================================================
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# JetBrains (IntelliJ, WebStorm, Android Studio...)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+
+# Emacs
+\#*\#
+.\#*
+
+
+# =============================================================================
+# 🟢 Node.js / Express
+# =============================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+package-lock.json
+yarn.lock
+.npm
+.node_repl_history
+.yarn-integrity
+
+
+# =============================================================================
+# ⚛️ React
+# =============================================================================
+build/
+dist/
+.cache/
+.parcel-cache/
+.next/
+out/
+.nuxt/
+.vite/
+coverage/
+*.tsbuildinfo
+
+
+# =============================================================================
+# 🍃 MongoDB / Banco de dados
+# =============================================================================
+*.db
+*.sqlite
+*.sqlite3
+dump/
+data/db/
+
+
+# =============================================================================
+# 🔐 Variáveis de Ambiente e Segredos
+# =============================================================================
+.env
+.env.*
+!.env.example
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+*.pem
+*.key
+*.cert
+secrets.json
+config/secrets.*
+
+
+# =============================================================================
+# 🐦 Flutter / Dart
+# =============================================================================
+
+# Dependências
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+
+# Build outputs
+build/
+.packages
+
+# iOS
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/app.flx
+ios/Flutter/app.zip
+ios/Flutter/flutter_assets/
+ios/.generated/
+ios/Runner/GeneratedPluginRegistrant.*
+ios/Pods/
+
+# Android
+android/app/google-services.json
+android/.gradle/
+android/local.properties
+android/key.properties
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+
+# macOS (Flutter)
+macos/Flutter/GeneratedPluginRegistrant.swift
+macos/Flutter/ephemeral/
+
+# Web (Flutter)
+lib/generated_plugin_registrant.dart
+
+# Coverage
+coverage/
+
+
+# =============================================================================
+# 📦 Logs e temporários gerais
+# =============================================================================
+logs/
+*.log
+tmp/
+temp/
+.temp/
+.tmp/
+*.tmp
+*.bak
+*.backup
+*.orig
+
+
+# =============================================================================
+# 🚀 Deploy e CI/CD
+# =============================================================================
+.vercel
+.netlify
+.serverless/
+.terraform/
+*.tfstate
+*.tfstate.*
+
+
+# =============================================================================
+# 📁 Outros
+# =============================================================================
+*.zip
+*.tar.gz
+*.rar
+.history/
