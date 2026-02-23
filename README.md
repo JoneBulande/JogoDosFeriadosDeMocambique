@@ -12,6 +12,10 @@
 
 </div>
 
+<p align="center">
+  <img alt="Jogo dos Feriados de Moçambique Banner" src="./img/mockup.png" width="100%">
+</p>
+
 ---
 
 ## 📖 Sobre o projeto
